@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pujax | Electronic Music Producer | Berlin</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Pujax (Pooya) - Electronic music producer based in Berlin. Discover the latest electro beats and electronic music. Follow on Spotify for new releases.">
+    <meta name="keywords" content="Pujax, Pooya, electronic music, electro, Berlin, music producer, EDM, Ableton Live, Spotify">
+    <meta name="author" content="Pujax">
+    
+    <!-- Open Graph Meta Tags for Social Sharing -->
+    <meta property="og:title" content="Pujax | Electronic Music Producer">
+    <meta property="og:description" content="Electronic music producer based in Berlin. Discover electro beats and follow my musical journey.">
+    <meta property="og:image" content="https://pujaxmusic.com/assets/pujax-og-image.jpg">
+    <meta property="og:url" content="https://pujaxmusic.com">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pujax | Electronic Music Producer">
+    <meta name="twitter:description" content="Electronic music producer based in Berlin. Discover electro beats and follow my musical journey.">
+    <meta name="twitter:image" content="https://pujaxmusic.com/assets/pujax-twitter-image.jpg">
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/svg+xml" sizes="16x16" href="/favicon-16x16.svg">
+    <link rel="icon" type="image/svg+xml" sizes="192x192" href="/favicon-192x192.svg">
+    <link rel="apple-touch-icon" href="/favicon-192x192.svg">
+    <link rel="shortcut icon" href="/favicon.svg" type="image/svg+xml">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Google reCAPTCHA v3 -->
+    <script src="https://www.google.com/recaptcha/api.js?render=6Le9jOsrAAAAAI-W498lWA1rxfQzmos_deo4w3V-"></script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'primary': '#0f172a',
+              'accent': '#00ffb3',
+              'secondary': '#1e293b',
+              'text': '#f1f5f9',
+              'muted': '#64748b',
+              'spotify': '#1db954'
+            },
+            fontFamily: {
+              'main': ['Inter', 'Arial', 'sans-serif'],
+              'title': ['Orbitron', 'Inter', 'Arial', 'sans-serif']
+            }
+          }
+        }
+      }
+    </script>
+    
+    <!-- Custom CSS for animations and specific styles -->
+    <style>
+      @keyframes visualizer {
+        0% { height: 40px; }
+        50% { height: 120px; }
+        100% { height: 40px; }
+      }
+      @keyframes bounce {
+        0%, 100% { transform: translateY(0) rotate(-45deg); }
+        50% { transform: translateY(10px) rotate(-45deg); }
+      }
+      .audio-visualizer .bar {
+        animation: visualizer 1.2s infinite ease-in-out alternate;
+      }
+      .audio-visualizer .bar:nth-child(2) { animation-delay: 0.1s; }
+      .audio-visualizer .bar:nth-child(3) { animation-delay: 0.2s; }
+      .audio-visualizer .bar:nth-child(4) { animation-delay: 0.3s; }
+      .audio-visualizer .bar:nth-child(5) { animation-delay: 0.4s; }
+      .audio-visualizer .bar:nth-child(6) { animation-delay: 0.5s; }
+      .audio-visualizer .bar:nth-child(7) { animation-delay: 0.6s; }
+      .audio-visualizer .bar:nth-child(8) { animation-delay: 0.7s; }
+      .scroll-arrow {
+        animation: bounce 1.5s infinite;
+      }
+      html {
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+      }
+      
+      /* Prevent horizontal scrolling and white space */
+      body {
+        overflow-x: hidden;
+      }
+      
+      /* Ensure all sections don't exceed viewport width */
+      section, nav, footer {
+        max-width: 100vw;
+        overflow-x: hidden;
+      }
+      
+      /* Hamburger Menu Styles */
+      #nav-menu.active {
+        transform: translateX(0) !important;
+      }
+      
+      /* Hamburger Animation */
+      #hamburger.active .bar:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+      #hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+      }
+      #hamburger.active .bar:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+      }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="bg-secondary shadow-lg sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="nav-logo">
+                    <a href="#home" class="font-title text-2xl text-accent font-black tracking-wider">PUJAX</a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="text-text hover:text-spotify transition-colors duration-200 font-medium">Home</a>
+                        <a href="#about" class="text-text hover:text-spotify transition-colors duration-200 font-medium">About</a>
+                        <a href="#music" class="text-text hover:text-spotify transition-colors duration-200 font-medium">Music</a>
+                        <a href="https://open.spotify.com/artist/1mZR6CFXo8Zh9RO5iWdNhY" class="text-spotify hover:text-accent transition-colors duration-200 font-medium flex items-center gap-2" target="_blank">
+                            <i class="fab fa-spotify"></i> Listen
+                        </a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="hamburger" class="flex flex-col gap-1 p-2">
+                        <span class="bar w-6 h-0.5 bg-text rounded-sm transition-all duration-300"></span>
+                        <span class="bar w-6 h-0.5 bg-text rounded-sm transition-all duration-300"></span>
+                        <span class="bar w-6 h-0.5 bg-text rounded-sm transition-all duration-300"></span>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile menu -->
+            <div id="nav-menu" class="md:hidden fixed left-0 top-16 w-screen bg-secondary shadow-xl transform -translate-x-full transition-transform duration-300 z-40 overflow-hidden">
+                <div class="px-2 pt-2 pb-3 space-y-1 text-center">
+                    <a href="#home" class="block px-3 py-2 text-text hover:text-spotify transition-colors duration-200 text-lg">Home</a>
+                    <a href="#about" class="block px-3 py-2 text-text hover:text-spotify transition-colors duration-200 text-lg">About</a>
+                    <a href="#music" class="block px-3 py-2 text-text hover:text-spotify transition-colors duration-200 text-lg">Music</a>
+                    <a href="https://open.spotify.com/artist/1mZR6CFXo8Zh9RO5iWdNhY" class="block px-3 py-2 text-spotify hover:text-accent transition-colors duration-200 text-lg" target="_blank">
+                        <i class="fab fa-spotify"></i> Listen
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-primary via-primary to-spotify overflow-hidden">
+        <div class="absolute inset-0 bg-primary bg-opacity-70 z-10"></div>
+        <div class="relative z-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="flex flex-col lg:flex-row items-center justify-center gap-12">
+                <div class="flex-1 max-w-lg text-center lg:text-left" data-aos="fade-up">
+                    <h1 class="font-title mb-4">
+                        <span class="block text-4xl sm:text-5xl lg:text-6xl font-black text-accent tracking-wider">PUJAX</span>
+                        <span class="block text-xl sm:text-2xl text-text font-normal mt-2">Electronic Music Producer</span>
+                    </h1>
+                    <p class="text-muted text-lg sm:text-xl mb-8 leading-relaxed">
+                        Berlin-based electronic music enthusiast crafting electro beats and vibes. 
+                        Follow my musical journey through beats and electronic soundscapes.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="https://open.spotify.com/artist/1mZR6CFXo8Zh9RO5iWdNhY" 
+                           class="inline-flex items-center justify-center gap-2 bg-spotify hover:bg-green-600 text-white font-semibold px-8 py-3 rounded-full transition-colors duration-200" target="_blank">
+                            <i class="fab fa-spotify"></i> Listen on Spotify
+                        </a>
+                        <a href="#music" 
+                           class="inline-flex items-center justify-center gap-2 bg-secondary hover:bg-accent hover:text-primary text-accent border border-accent font-semibold px-8 py-3 rounded-full transition-all duration-200">
+                            <i class="fas fa-music"></i> Latest Releases
+                        </a>
+                    </div>
+                </div>
+                <div class="flex-1 flex items-center justify-center" data-aos="fade-left">
+                    <div class="w-56 h-56 bg-gray-800 rounded-full flex items-center justify-center shadow-2xl">
+                        <div class="audio-visualizer flex items-end h-32 w-32 gap-1">
+                            <div class="bar w-3 h-10 bg-accent rounded-t"></div>
+                            <div class="bar w-3 h-10 bg-accent rounded-t"></div>
+                            <div class="bar w-3 h-10 bg-accent rounded-t"></div>
+                            <div class="bar w-3 h-10 bg-accent rounded-t"></div>
+                            <div class="bar w-3 h-10 bg-accent rounded-t"></div>
+                            <div class="bar w-3 h-10 bg-accent rounded-t"></div>
+                            <div class="bar w-3 h-10 bg-accent rounded-t"></div>
+                            <div class="bar w-3 h-10 bg-accent rounded-t"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30">
+            <div class="scroll-arrow w-8 h-8 border-l-2 border-b-2 border-accent transform rotate-45"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="bg-primary py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-10" data-aos="fade-up">
+                <h2 class="font-title text-3xl sm:text-4xl lg:text-5xl text-accent mb-4">About Pujax</h2>
+                <p class="text-muted text-lg sm:text-xl">The Journey of Electronic Passion</p>
+            </div>
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="flex-1 w-full max-w-lg mx-auto" data-aos="fade-right">
+                    <div class="bg-secondary rounded-2xl p-6 sm:p-8 shadow-2xl">
+                        <h3 class="text-2xl sm:text-3xl text-accent font-title mb-6 text-center">Hey, I'm Pooya</h3>
+                        <div class="space-y-4 text-center">
+                            <p class="text-text leading-relaxed">An electronic music enthusiast currently based in Berlin. My thing is basically anything electronic. I use Ableton Live for my music production.</p>
+                            
+                            <p class="text-text leading-relaxed">I've been into music since I was 9, learning music theory and later picking up the guitar. In my teenage years, I played around with friends, covering and producing music. It was a learning experience that fueled my passion.</p>
+                            
+                            <p class="text-text leading-relaxed">Now in Berlin, I'm all about producing electro music. Follow me on this journey of beats and vibes! 🎧🔥</p>
+                        </div>
+                        
+                        <div class="flex flex-row justify-center items-center gap-8 sm:gap-12 mt-8">
+                            <div class="text-center">
+                                <div class="text-2xl sm:text-3xl text-accent font-title font-bold">2025</div>
+                                <div class="text-muted text-sm sm:text-base">Latest Releases</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl sm:text-3xl text-accent font-title font-bold">16+</div>
+                                <div class="text-muted text-sm sm:text-base">Years of Music</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-1 w-full flex justify-center" data-aos="fade-left">
+                    <div class="relative w-72 h-72 rounded-full overflow-hidden shadow-2xl">
+                        <img src="https://i.scdn.co/image/ab6761610000517411251d710f44eb80a5641a52" 
+                             alt="Pujax Profile" 
+                             class="w-full h-full object-cover rounded-full">
+                        <div class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-200">
+                            <div class="w-12 h-12 bg-accent text-primary rounded-full flex items-center justify-center shadow-lg">
+                                <i class="fas fa-play text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Music Section -->
+    <section id="music" class="bg-secondary py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="font-title text-3xl sm:text-4xl lg:text-5xl text-accent mb-4">Latest Releases</h2>
+                <p class="text-muted text-lg sm:text-xl">Discover the Electronic Journey</p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+                <!-- Featured Release -->
+                <div class="flex justify-center" data-aos="fade-up">
+                    <div class="w-full max-w-md">
+                        <h3 class="text-2xl font-title text-accent mb-6 text-center">Featured Release</h3>
+                        <div class="bg-primary rounded-xl p-4 shadow-xl">
+                            <iframe src="https://open.spotify.com/embed/album/6T6Y8SO1EgESaOr2u8c1iB?utm_source=generator&theme=0" 
+                                    width="100%" height="352" frameBorder="0" allowfullscreen="" 
+                                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                                    loading="lazy"
+                                    class="rounded-lg"></iframe>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Recent Releases -->
+                <div class="space-y-4">
+                    <div class="bg-primary rounded-xl p-4 shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h4 class="text-lg font-title text-accent mb-1">Between Two Points</h4>
+                                <p class="text-muted text-sm">2025 • Album</p>
+                            </div>
+                            <a href="https://open.spotify.com/album/5KphckPHR89yJvY8gcu2NH" 
+                               class="bg-spotify hover:bg-green-600 text-white px-4 py-2 rounded-lg transition-colors duration-200 text-sm font-medium" 
+                               target="_blank">
+                                <i class="fab fa-spotify mr-2"></i>Listen
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-primary rounded-xl p-4 shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h4 class="text-lg font-title text-accent mb-1">Digital Adagio</h4>
+                                <p class="text-muted text-sm">2025 • Album</p>
+                            </div>
+                            <a href="https://open.spotify.com/album/3qtdepaHkume8Kr4L78jHB" 
+                               class="bg-spotify hover:bg-green-600 text-white px-4 py-2 rounded-lg transition-colors duration-200 text-sm font-medium" 
+                               target="_blank">
+                                <i class="fab fa-spotify mr-2"></i>Listen
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-primary rounded-xl p-4 shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h4 class="text-lg font-title text-accent mb-1">Life in Motion</h4>
+                                <p class="text-muted text-sm">2025 • Album</p>
+                            </div>
+                            <a href="https://open.spotify.com/album/1SXtYu5f8Ow46andiTtFDG" 
+                               class="bg-spotify hover:bg-green-600 text-white px-4 py-2 rounded-lg transition-colors duration-200 text-sm font-medium" 
+                               target="_blank">
+                                <i class="fab fa-spotify mr-2"></i>Listen
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-primary rounded-xl p-4 shadow-lg" data-aos="fade-up" data-aos-delay="400">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h4 class="text-lg font-title text-accent mb-1">Shadowed Space</h4>
+                                <p class="text-muted text-sm">2025 • Album</p>
+                            </div>
+                            <a href="https://open.spotify.com/album/52VThezRHX2AuIPtNegXAZ" 
+                               class="bg-spotify hover:bg-green-600 text-white px-4 py-2 rounded-lg transition-colors duration-200 text-sm font-medium" 
+                               target="_blank">
+                                <i class="fab fa-spotify mr-2"></i>Listen
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-primary rounded-xl p-4 shadow-lg" data-aos="fade-up" data-aos-delay="500">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h4 class="text-lg font-title text-accent mb-1">Void Frequency</h4>
+                                <p class="text-muted text-sm">2025 • Single</p>
+                            </div>
+                            <a href="https://open.spotify.com/album/7uq5iikWsJ0IDrZenMgDun" 
+                               class="bg-spotify hover:bg-green-600 text-white px-4 py-2 rounded-lg transition-colors duration-200 text-sm font-medium" 
+                               target="_blank">
+                                <i class="fab fa-spotify mr-2"></i>Listen
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-primary rounded-xl p-4 shadow-lg" data-aos="fade-up" data-aos-delay="600">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h4 class="text-lg font-title text-accent mb-1">You and Me</h4>
+                                <p class="text-muted text-sm">2025 • Single</p>
+                            </div>
+                            <a href="https://open.spotify.com/album/3fI24vVd4L0kVYoSijMmU1" 
+                               class="bg-spotify hover:bg-green-600 text-white px-4 py-2 rounded-lg transition-colors duration-200 text-sm font-medium" 
+                               target="_blank">
+                                <i class="fab fa-spotify mr-2"></i>Listen
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12" data-aos="fade-up">
+                <a href="https://open.spotify.com/artist/1mZR6CFXo8Zh9RO5iWdNhY" 
+                   class="inline-flex items-center gap-3 bg-spotify hover:bg-green-600 text-white px-8 py-4 rounded-xl font-medium text-lg transition-colors duration-200 shadow-lg" 
+                   target="_blank">
+                    <i class="fab fa-spotify text-xl"></i>
+                    Follow on Spotify
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Section -->
+    <section class="bg-primary py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="font-title text-3xl sm:text-4xl lg:text-5xl text-accent mb-4">Connect & Follow</h2>
+                <p class="text-muted text-lg sm:text-xl">Stay updated with the latest beats</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" data-aos="fade-up">
+                <a href="https://open.spotify.com/artist/1mZR6CFXo8Zh9RO5iWdNhY" 
+                   class="bg-secondary rounded-xl p-6 text-center group hover:scale-105 transition-transform duration-200 shadow-lg block" 
+                   target="_blank">
+                    <div class="w-16 h-16 bg-spotify rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-200">
+                        <i class="fab fa-spotify text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-title text-accent mb-2">Spotify</h3>
+                    <p class="text-muted text-sm">Listen to all tracks</p>
+                </a>
+                <a href="https://on.soundcloud.com/YyPCsPJ156rgT3aLtT" 
+                   class="bg-secondary rounded-xl p-6 text-center group hover:scale-105 transition-transform duration-200 shadow-lg block" 
+                   target="_blank">
+                    <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-200">
+                        <i class="fab fa-soundcloud text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-title text-accent mb-2">SoundCloud</h3>
+                    <p class="text-muted text-sm">Exclusive releases</p>
+                </a>
+                <a href="https://youtube.com/channel/UCPRrrCn16w5fGF341PYlVDA?si=sV4feukaGRREb53a" 
+                   class="bg-secondary rounded-xl p-6 text-center group hover:scale-105 transition-transform duration-200 shadow-lg sm:col-span-2 lg:col-span-1 block" 
+                   target="_blank">
+                    <div class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-200">
+                        <i class="fab fa-youtube text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-title text-accent mb-2">YouTube</h3>
+                    <p class="text-muted text-sm">Music videos</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="bg-secondary py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="font-title text-3xl sm:text-4xl lg:text-5xl text-accent mb-4">Get in Touch</h2>
+                <p class="text-muted text-lg sm:text-xl">Collaborations • Bookings • Fan Messages</p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="flex justify-center" data-aos="fade-right">
+                    <div class="bg-primary rounded-2xl p-8 shadow-xl w-full max-w-md">
+                        <h3 class="text-2xl font-title text-accent mb-6 text-center">Let's Connect</h3>
+                        <p class="text-muted text-center mb-8">Interested in collaborations, bookings, or just want to say hi? Drop me a message!</p>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-accent rounded-full flex items-center justify-center">
+                                    <i class="fas fa-map-marker-alt text-primary text-lg"></i>
+                                </div>
+                                <span class="text-text">Berlin, Germany</span>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-accent rounded-full flex items-center justify-center">
+                                    <i class="fas fa-music text-primary text-lg"></i>
+                                </div>
+                                <span class="text-text">Electronic • Electro • EDM</span>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-accent rounded-full flex items-center justify-center">
+                                    <i class="fas fa-headphones text-primary text-lg"></i>
+                                </div>
+                                <span class="text-text">Ableton Live</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex justify-center" data-aos="fade-left">
+                    <div class="w-full max-w-md">
+                        <form id="contactForm" class="space-y-6">
+                            <div class="relative">
+                                <input type="text" id="name" name="name" required placeholder=" "
+                                       class="w-full bg-primary border border-gray-600 rounded-lg px-4 py-3 text-text focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-colors duration-200 peer placeholder-transparent">
+                                <label for="name" 
+                                       class="absolute left-4 -top-2.5 bg-primary px-2 text-sm text-muted transition-all duration-200 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-placeholder-shown:top-3 peer-focus:-top-2.5 peer-focus:text-sm peer-focus:text-accent">
+                                    Your Name *
+                                </label>
+                            </div>
+                            <div class="relative">
+                                <input type="email" id="email" name="email" required placeholder=" "
+                                       class="w-full bg-primary border border-gray-600 rounded-lg px-4 py-3 text-text focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-colors duration-200 peer placeholder-transparent">
+                                <label for="email" 
+                                       class="absolute left-4 -top-2.5 bg-primary px-2 text-sm text-muted transition-all duration-200 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-placeholder-shown:top-3 peer-focus:-top-2.5 peer-focus:text-sm peer-focus:text-accent">
+                                    Your Email *
+                                </label>
+                            </div>
+                            <div class="relative">
+                                <select id="subject" name="subject" required 
+                                        class="w-full bg-primary border border-gray-600 rounded-lg px-4 py-3 text-text focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-colors duration-200">
+                                    <option value="">Select Subject</option>
+                                    <option value="collaboration">Collaboration</option>
+                                    <option value="booking">Booking Inquiry</option>
+                                    <option value="fan">Fan Message</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="relative">
+                                <textarea id="message" name="message" rows="5" required placeholder=" "
+                                          class="w-full bg-primary border border-gray-600 rounded-lg px-4 py-3 text-text focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-colors duration-200 peer placeholder-transparent resize-none"></textarea>
+                                <label for="message" 
+                                       class="absolute left-4 -top-2.5 bg-primary px-2 text-sm text-muted transition-all duration-200 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-placeholder-shown:top-3 peer-focus:-top-2.5 peer-focus:text-sm peer-focus:text-accent">
+                                    Your Message *
+                                </label>
+                            </div>
+                            <button type="submit" id="submitBtn"
+                                    class="w-full bg-accent hover:bg-green-400 disabled:bg-gray-600 disabled:cursor-not-allowed text-primary px-6 py-3 rounded-lg font-medium transition-colors duration-200 flex items-center justify-center gap-2">
+                                <i class="fas fa-paper-plane"></i>
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary py-12 px-4 sm:px-6 lg:px-8 border-t border-gray-700">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+                <div class="flex flex-col items-center md:items-start">
+                    <h3 class="font-title text-2xl text-accent mb-2">PUJAX</h3>
+                    <p class="text-muted">Electronic Music Producer</p>
+                </div>
+                <div class="flex flex-col items-center md:items-center">
+                    <nav class="flex flex-col sm:flex-row gap-4 sm:gap-6">
+                        <a href="#home" class="text-text hover:text-accent transition-colors duration-200">Home</a>
+                        <a href="#about" class="text-text hover:text-accent transition-colors duration-200">About</a>
+                        <a href="#music" class="text-text hover:text-accent transition-colors duration-200">Music</a>
+                        <a href="#contact" class="text-text hover:text-accent transition-colors duration-200">Contact</a>
+                    </nav>
+                </div>
+                <div class="flex justify-center md:justify-end gap-4">
+                    <a href="https://open.spotify.com/artist/1mZR6CFXo8Zh9RO5iWdNhY" 
+                       target="_blank" 
+                       class="w-10 h-10 bg-spotify rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-200">
+                        <i class="fab fa-spotify text-white"></i>
+                    </a>
+                    <a href="https://youtube.com/channel/UCPRrrCn16w5fGF341PYlVDA?si=sV4feukaGRREb53a" 
+                       target="_blank" 
+                       class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-200">
+                        <i class="fab fa-youtube text-white"></i>
+                    </a>
+                    <a href="https://on.soundcloud.com/YyPCsPJ156rgT3aLtT" 
+                       target="_blank" 
+                       class="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-200">
+                        <i class="fab fa-soundcloud text-white"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-muted text-sm mb-2">
+                    &copy; 2025 Pujax. All rights reserved. Made with ❤️ for electronic music.
+                </p>
+                <p class="text-muted text-xs">
+                    Website developed with 💙 by <a href="https://miladnayebi.com" target="_blank" class="text-accent hover:text-green-400 transition-colors duration-200">Milad Nayebi</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
